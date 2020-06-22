@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>LOVE YOU</title>
+<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.4/css/layui.css">
+</head>
+<body>
+<div class="layui-container" >
+	
+<div class="row" style="text-align: center;margin-top: 12px " id="head1"> 老婆我知道错了~ </div>
+<hr class="layui-bg-blue">
+<div class="row" style="text-align: center;" id="head2"> <h1>原谅我好不好~</h1></div>
+<div class="row" style="text-align: center;" > <img src="./sorry.gif" id="img"></div>
+<hr class="layui-bg-gray">
+<div class="" style="text-align: center;;margin-top: 12px">
+      <button class="layui-btn layui-bg-orange" lay-submit lay-filter="formDemo" id="agree">同意</button>
+      <button class="layui-btn layui-bg-red" lay-submit lay-filter="formDemo" id="refuse">不同意</button>
+  </div>
+</div>
+<script src="https://www.layuicdn.com/layui-v2.5.4/layui.js"></script>
+<script>
+layui.use(['layer', 'form','jquery'], function(){
+  var layer = layui.layer
+  ,form = layui.form
+  ,$ = layui.jquery;
+  var agree=0;
+  var refuse=0;
+
+//同意
+  $("#agree").click(function(){
+     agree++;
+     var agree_msg="哇~老婆你同意啦,敲开心";
+   layer.msg(agree_msg, {icon: 1, time: 1000, anim: 4});
+   $("#agree").hide();
+   $("#refuse").hide();
+   $("#head1").hide();
+   $("#head2").hide();
+   $("#img").attr("src","./happy.jpg");
+  }); 
+
+//拒绝
+  $("#refuse").click(function(){
+      refuse++;
+      if(refuse==6) {
+        $("#refuse").hide();
+
+      }
+      if(refuse==1) {     
+        var agree_msg="我该打，我该骂，全怪我不听你的话，宝贝儿不要再生气了好吗？";
+        layer.msg(agree_msg, {icon: 5, time: 1500, anim: 4});
+      }
+      if(refuse==2) {     
+        var agree_msg="我错了！娘子温柔贤淑，持家有道，知书达理，是我不懂得欣赏，我对不起你，请你原谅我！";
+        layer.msg(agree_msg, {icon: 5, time: 1500, anim: 4});
+      }   
+      if(refuse==3) {     
+        var agree_msg="小女人一个，但我很喜欢。以后再也不惹你生气了，想你，念你，恨不得啃啃你！";
+        layer.msg(agree_msg, {icon: 5, time: 1500, anim: 4});
+      }
+      if(refuse==4) {     
+        var agree_msg="不是吧老婆，这你也不同意，那你就别怪我无情了";
+        layer.msg(agree_msg, {icon: 5, time: 1500, anim: 4});
+      }   
+      if(refuse==5) {     
+        var agree_msg="快去点“同意”不要逼我放大招";
+        layer.msg(agree_msg, {icon: 5, time: 1500, anim: 4});
+      }    
+      if(refuse==6) {     
+        var agree_msg="这是你逼我的，妈咪妈咪哄，不同意消失";
+        layer.msg(agree_msg, {icon: 5, time: 1500, anim: 4});
+      }   
+  });
+
+});
+
+function getQueryString(name) {   
+      //var reg = "哇~老婆你同意啦,敲开心"   
+      //var r = "哇~老婆你同意啦,敲开心"   
+      //f (r != null) return decodeURI(r[2]); return null;   
+}  
+
+</script> 
+</body>
